@@ -7,6 +7,8 @@ int main()
     logInit();
     
     heapInit();
+    
+    char* heapBuf = heapMalloc(32);
+
     logExit();
-    //char* heapBuf = heapMalloc(32);
 }

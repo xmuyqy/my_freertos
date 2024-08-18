@@ -1,2 +1,5 @@
 Time: Sun Aug 18 22:32:49 2024, File: heap.c, Line: 19, debug info: free byte: 1016
 Time: Sun Aug 18 22:32:54 2024, File: heap.c, Line: 19, debug info: free byte: 1016
+Time: Sun Aug 18 22:51:56 2024, File: heap.c, Line: 19, debug info: free byte: 1016
+Time: Sun Aug 18 22:53:16 2024, File: heap.c, Line: 19, debug info: free byte: 1016
+Time: Sun Aug 18 22:53:16 2024, File: heap.c, Line: 38, debug info: allocate byte: 32, free byte: 984

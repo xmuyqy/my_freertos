@@ -34,7 +34,7 @@ void *heapMalloc(uint32_t wantedSize)
         curExpendByte += wantedSize;
     }
 
-    pr_debug("File: %s, Line: %d, debug info: allocate byte: %d, free byte: %d",  
+    pr_debug("File: %s, Line: %d, debug info: allocate byte: %d, free byte: %d\n",  
     __FILE__, __LINE__, wantedSize, ADJUST_TOTAL_HEAP_SIZE - curExpendByte);
     return pReturn;
 }
