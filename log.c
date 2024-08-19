@@ -7,6 +7,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <time.h>
+#define debug(format, ...) log(__FILE__, __LINE__, format, ##__VA_ARGS__);
 #define LOG_PATH "./my_freertos.log" 
 #define LOG_BUFFER_SIZE 512
 int fd;
@@ -35,7 +36,7 @@ void logWrite(const char * buf, int size)
     printf(buf);
 }
 
-void pr_debug(const char *format, ...)
+void log(const char *fileName, int line, const char *format, ...)
 {
     char buf[LOG_BUFFER_SIZE] = {0};
     int ret; 
@@ -49,6 +50,7 @@ void pr_debug(const char *format, ...)
     timeinfo = localtime(&rawtime);
     ret = snprintf(buf, sizeof(buf), "Time: %s", asctime(timeinfo));  // asctime会加一个换行符
     ret += snprintf(buf + ret - 1, sizeof(buf), ", ");
+    ret += snprintf(buf + ret - 1, sizeof(buf) - ret, "File: %s, Line: %d, ", fileName, line);
     ret += vsnprintf(buf + ret - 1, sizeof(buf) - ret, format, args);
     
     logWrite(buf, ret - 1);
