@@ -16,7 +16,7 @@ void heapInit()
 {
     /* 对堆的首地址进行对齐 */
     heapStartAddr = (uint8_t *) (((uint32_t) &myHeap[PORT_BYTE_ALIGNMENT]) & (~((uint32_t) PORT_BYTE_ALIGNMENT_MASK)));
-    pr_debug("File: %s, Line: %d, debug info: free byte: %d\n",  __FILE__, __LINE__, ADJUST_TOTAL_HEAP_SIZE - curExpendByte);
+    debug("debug info: free byte: %d\n", ADJUST_TOTAL_HEAP_SIZE - curExpendByte);
 }
 
 void *heapMalloc(uint32_t wantedSize) 
@@ -34,7 +34,6 @@ void *heapMalloc(uint32_t wantedSize)
         curExpendByte += wantedSize;
     }
 
-    pr_debug("File: %s, Line: %d, debug info: allocate byte: %d, free byte: %d\n",  
-    __FILE__, __LINE__, wantedSize, ADJUST_TOTAL_HEAP_SIZE - curExpendByte);
+    debug("debug info: allocate byte: %d, free byte: %d\n", wantedSize, ADJUST_TOTAL_HEAP_SIZE - curExpendByte);
     return pReturn;
 }
